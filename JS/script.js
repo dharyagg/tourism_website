@@ -106,5 +106,45 @@ const hotelButton = document.querySelector('.hotel-button');
 const hotelCard = document.querySelectorAll('.off');
 const text = hotelButton.innerText;
 
+hotelButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  hotelCard.forEach((x) => {
+    x.classList.toggle('on');
+  });
 
+  if (e.target.innerHTML !== 'less <img src="/Imgs/icons/bleft.png">') {
+    e.target.innerHTML = `less <img src="/Imgs/icons/bleft.png" >`;
+  } else {
+    e.target.innerHTML = `view all <img src="/Imgs/icons/bleft.png" >`;
+  }
+});
+
+
+
+// 
+const toogleOn = document.querySelector('.toggleOn');
+const toogleClose = document.querySelector('.toggleClose');
+const navbar = document.querySelector('.navbar');
+const navlists = document.querySelectorAll('.navlist');
+
+toogleOn.addEventListener('click', (e) => {
+  e.preventDefault();
+  navbar.classList.add('navlistOn');
+  toogleClose.classList.add('toggleCloseOn');
+  toogleOn.classList.add('toggleOnClose');
+});
+
+toogleClose.addEventListener('click', (e) => {
+  navbar.classList.remove('navlistOn');
+  toogleClose.classList.remove('toggleCloseOn');
+  toogleOn.classList.remove('toggleOnClose');
+});
+
+console.log('navlists');
+navlists.forEach((xy) => {
+  xy.addEventListener('click', (x) => {
+    navbar.classList.remove('navlistOn');
+    toogleClose.classList.remove('toggleCloseOn');
+    toogleOn.classList.remove('toggleOnClose');
+  });
 });
